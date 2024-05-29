@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Videos</title>
+    <link rel="icon" type="image"
+    href="/png-clipart-youtube-play-button-computer-icons-youtube-youtube-logo-angle-rectangle-thumbnail-removebg-preview.png"
+    href=""
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <link rel="stylesheet" href="/css/new2.css">
+</head>
+<body>
+    <% if(success && success.length) { %>
+        <div style="padding: 15px; margin: 10px 0; border: 1px solid transparent; border-radius: 4px; font-family: Arial, sans-serif; font-size: 16px; position: relative; background-color: #dff0d8; border-color: #d6e9c6; color: #3c763d;">
+            <button style="position: absolute; top: 10px; right: 15px; color: inherit; background: none; border: none; font-size: 20px; cursor: pointer;" onclick="this.parentElement.style.display='none';">&times;</button>
+            <strong>
+                <%= success %></strong>
+        </div>
+    <% } %>
+    
+        
+   
+    <% if(error && error.length) { %>
+        <div class="flash-message">
+            <button class="close" onclick="this.parentElement.style.display='none';">&times;</button>
+            <strong>
+                <%= error %></strong>
+        </div>
+        
+    <%   } %>
+    <h1><%=sourceId.title %> </h1>
+    <div id="video-container">
+            <div class="video">
+               
+                <iframe width="800" height="500" src="https://www.youtube.com/embed/<%= videoSourceId %>" frameborder="0" allowfullscreen></iframe>
+        
+            </div>
+            <div class="summary">
+                <h3>SUMMARY OF VIDEO</h3>
+        <%= summarydata %>
+            </div>
+            </div>
+            <div class="div">
+                <div class="dashboard">
+                    <div class="card">
+                        <i class="fas fa-thumbs-up"></i>
+                        <h2 class="likes">
+                            <%=likeCount %>
+                        </h2>
+                        <p>Likes</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-eye"></i>
+                        <h2 class="views"> <%=viewCount %></h2>
+                        <p>Views</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-comment"></i>
+                        <h2 class="comments"> <%=commentCount %></h2>
+                        <p>Comments</p>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-star"></i>
+                        <h2 class="favorites"> <%=favoriteCount %></h2>
+                        <p>Favorites</p>
+                   
+                </div>
+        </div>
+            </div>
+            <div class="div">
+                <div class="reviews">
+                    <div class="comment">
+                       
+                            <h2>Leave a Comment</h2>
+                            <form action="/video/<%= sourceId._id %>/comments" method="POST">
+                                <div>
+                                    <!-- <label for="rating">Rating</label>
+                                    <input type="range" min="1" max="5" name="rating" id="rating"> -->
+                                    <label for="comment">Comments</label>
+                                    <textarea name="comment" id="comment" required></textarea>
+                                    <fieldset class="starability-grow">
+              
+                                        <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked aria-label="No rating." />
+                                        <input type="radio" id="first-rate1" name="rating" value="1" />
+                                        <label for="first-rate1" title="Terrible">1 star</label>
+                                        <input type="radio" id="first-rate2" name="rating" value="2" />
+                                        <label for="first-rate2" title="Not good">2 stars</label>
+                                        <input type="radio" id="first-rate3" name="rating" value="3" />
+                                        <label for="first-rate3" title="Average">3 stars</label>
+                                        <input type="radio" id="first-rate4" name="rating" value="4" />
+                                        <label for="first-rate4" title="Very good">4 stars</label>
+                                        <input type="radio" id="first-rate5" name="rating" value="5" />
+                                        <label for="first-rate5" title="Amazing">5 stars</label>
+                                      </fieldset>
+                                </div>
+                                <div>
+                                
+                                    <button type="submit">Submit</button> <!-- Corrected: Added type attribute -->
+                                </div>
+                            </form>
+               
+                  
+                    <h2>All Comments</h2> 
+                     
+    <hr>
+    <div class="comments-section">
+        <div class="row">
+            <% for(comment of sourceId.comments) { %>
+                <div class="coment">
+                   <h3>Id: <%= comment.author %></h3>
+                   <p class="starability-result" data-rating= <%= comment.rating %>>
+                    Rated: 3 stars
+                  </p>
+                    <div class="comment-text"> <%= comment.comment %> </div>
+                  
+                    <form  action="/video/<%=sourceId._id %>/comments/<%=comment._id%>?_method=DELETE"
+                    method="POST">
+                 <%if(currUser && comment.author.equals(currUser._id)){ %>   
+                        <button class="delete-button">Delete</button>
+                        <% } %> 
+                     
+    
+                    </form>
+                    
+                </div>
+            <% } %>
+        </div>
+    
+    </div>
+    
+                    </div>
+                </div>
+                </div>
+               
+            
+            
+          
+         
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script> 
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>youtube</title>
+    
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/png" href="/png-clipart-youtube-play-button-computer-icons-youtube-youtube-logo-angle-rectangle-thumbnail-removebg-preview.png">
+
+    <link rel="stylesheet" href="/css/video.css">
+   
+</head>
+<body>
+    <div class="navbar">
+        <span><i class="fa-solid fa-bars"></i></span> 
+        <div>
+         <img src="https://t3.ftcdn.net/jpg/06/34/31/96/360_F_634319630_txtgmPLEEQ8o4zaxec2WKrLWUBqdBBQn.jpg">
+        </div> 
+        <div class="search" id="query">
+            <form id="searchForm" action="/search" method="GET">
+                <input id="searchInput" name="searchQuery" placeholder="Search here">
+                <button type="submit" class="searchbtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+        </div>
+        <div id="searchResults"></div>
+        <div class="mike">
+         <img src="https://i.pinimg.com/736x/74/ce/14/74ce14befb22695743659cf8a8290c2b.jpg">
+        </div>
+        <div class="notification">
+         <img src="https://i.pinimg.com/564x/e0/e9/bb/e0e9bb4087b5770cd0c85ebd5d1e14f8.jpg">
+        </div>
+        <form method="get" action="/user">
+         <div>
+             <button type="submit" class="user-btn">
+                 <img class="user" src="https://png.pngtree.com/png-vector/20191110/ourmid/pngtree-avatar-icon-profile-icon-member-login-vector-isolated-png-image_1978396.jpg">
+             </button>
+         </div>
+     </form>
+        <div class="button-container">
+            <!-- Signup Button -->
+            <div>
+                <form action="/signup" method="get">
+                    <button class="signup-btn">Signup</button>
+                </form>
+            </div>
+            
+            <!-- Login Button -->
+            <div>
+                <form action="/login" method="get">
+                    <button class="login-btn">Login</button>
+                </form>
+            </div>
+        </div>
+     </div>
+
+<section>
+   
+    <div id="video-container">
+        <% for(data of datas ) { %>
+            
+            <a href="/video/<%= data._id %>" class="video">
+               <h3><%= data.channelTitle %></h3>
+                <img src="https://img.youtube.com/vi/<%= data.videoId %>/0.jpg" alt="Video Thumbnail" style="width:420px; height:315px;">
+               
+            </a>
+           
+        <% }; %>
+    </div>
+</section>
+
+</body>
+</html>

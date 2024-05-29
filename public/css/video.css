@@ -1,0 +1,124 @@
+.signup-btn, .login-btn {
+    background-color: #dc3545; /* Red color */
+    color: #fff; /* White text color */
+    padding: 10px 20px; /* Padding */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+/* Hover effect */
+.signup-btn:hover, .login-btn:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+/* Style for the container */
+.button-container {
+    display: flex; /* Display buttons in a row */
+    align-items: center; /* Align buttons vertically */
+}
+
+/* Add margin between buttons */
+.button-container > div {
+    margin-right: 10px;
+}
+.user-btn {
+    background: none; /* No background */
+    border: none; /* No border */
+    padding: 0; /* No padding */
+    cursor: pointer; /* Cursor on hover */
+}
+
+/* Style for the user image */
+.user {
+    width: 40px; /* Adjust width as needed */
+    height: 40px; /* Adjust height as needed */
+    border-radius: 50%; /* Rounded corners for a circular shape */
+}
+
+
+.navbar {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 10px 20px;
+background-color: #fff;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+margin-bottom: 30px;
+}
+
+.navbar img {
+height: 70px;
+width: auto;
+}
+
+.search {
+display: flex;
+align-items: center;
+border: 1px solid #ccc;
+border-radius: 20px;
+overflow: hidden;
+margin: 0 20px;
+}
+
+.search input {
+border: none;
+outline: none;
+padding: 8px 16px;
+width: 500px;
+}
+
+.search button {
+background-color: transparent;
+border: none;
+cursor: pointer;
+padding: 8px;
+color: #555;
+}
+
+.mike img,
+.notification img {
+height: 24px;
+width: auto;
+margin: 0 10px;
+cursor: pointer;
+}
+
+.profile img {
+height: 40px;
+width: 40px;
+border-radius: 50%;
+cursor: pointer;
+}
+
+.fa-bars,
+.fa-magnifying-glass {
+font-size: 20px;
+}   
+
+section {
+margin-top: 30px;
+width: 90%;
+margin: auto;
+overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+#video-container {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 20px; /* Adjust the gap between images as needed */
+}
+
+.video {
+width: 200px; /* Set the width of each video container */
+text-decoration: none;
+color: black;
+}
+
+.video img {
+width: 100%; /* Make the image fill the width of its container */
+height: auto; /* Maintain the aspect ratio */
+border-radius: 5px;
+}
