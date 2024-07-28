@@ -16,6 +16,8 @@ const User = require("./models/user.js")
 const userRouter =require("./routes/user.js")
 const app = express();
 const port = 2000;
+const MongoStore = require('connect-mongo');
+const dbUrls = 'mongodb+srv://guddi98922:ipRiFDTRvXEmqSdg@project.uo8weuf.mongodb.net/?retryWrites=true&w=majority&appName=project ';
 
 // Set EJS as the view engine
 app.set("view engine","ejs");
@@ -24,7 +26,20 @@ app.use(express.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
 app.engine('ejs',ejsMate)
 app.use(express.static(path.join(__dirname,"/public")));
+
+const store = MongoStore.create({
+    mongoUrl :dbUrls,
+    crypto:{
+        secret: "mysupersecretcode",
+    },
+    touchAfter : 24*3600,
+});
+store.on("error",()=>{
+    console.log("ERROR IN MONGO SESSION STORE");
+})
+
 const sessionOptions = {
+    store,
     secret:"mysupersecrectcode",
     resave:false,
     saveUninitialized:true,
@@ -78,7 +93,7 @@ app.use(async (req, res, next) => {
 
 async function main() {
     try {
-        await mongoose.connect('mongodb://127.0.0.1:27017/youtubesource');
+        await mongoose.connect(dbUrls);
         console.log("Connected to DB successfully");
     } catch (err) {
         console.log("Failed to connect to database", err);
