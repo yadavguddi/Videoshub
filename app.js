@@ -15,7 +15,7 @@ const LocalStrategy = require("passport-local");
 const User = require("./models/user.js")
 const userRouter =require("./routes/user.js")
 const app = express();
-const port = 2000;
+const port = 4000;
 const MongoStore = require('connect-mongo');
 const dbUrls = 'mongodb+srv://guddi98922:ipRiFDTRvXEmqSdg@project.uo8weuf.mongodb.net/?retryWrites=true&w=majority&appName=project ';
 
