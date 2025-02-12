@@ -2,6 +2,9 @@
   "engines": {
     "node": "v18.18.1"
   },
+  "scripts": {
+  "start": "node app.js"
+},
   "name": "youcomment",
   "version": "1.0.0",
   "description": "",
