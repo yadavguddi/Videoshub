@@ -40,7 +40,7 @@ router.get("/:id", async (req, res) => {
         // gemini part
         async function generateContent(videoTitle) {
             try {
-                const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=AIzaSyCY8FJ08zy8LarhILNMg_Wn3E_nBFCbpws`;
+                const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=AIzaSyC4Q8YHPbnYE8PJ1nMl09esFvLvoaHBiSU`;
                 const response = await axios.post(url, {
                     contents: [{ parts: [{ text: `Summary for video with title in 150 words ${videoTitle}` }] }],
                 });
